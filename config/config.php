@@ -25,6 +25,10 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 /**
  * Application configuration
  */
+$my_env_var = getenv('DBDEV_NAME');
+echo "<h2>" . $my_env_var . "</h2>";
+
+
 $conf['settings']['app.title'] = 'Booked Scheduler';			// application title
 $conf['settings']['default.timezone'] = 'America/New_York';      // look up here http://php.net/manual/en/timezones.php
 $conf['settings']['allow.self.registration'] = 'true';         	// if users can register themselves
