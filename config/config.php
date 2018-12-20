@@ -25,10 +25,6 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 /**
  * Application configuration
  */
-$my_env_var = getenv('DBDEV_NAME');
-echo "<h2>" . $my_env_var . "</h2>";
-
-
 $conf['settings']['app.title'] = 'Booked Scheduler';			// application title
 $conf['settings']['default.timezone'] = 'America/New_York';      // look up here http://php.net/manual/en/timezones.php
 $conf['settings']['allow.self.registration'] = 'true';         	// if users can register themselves
@@ -112,11 +108,20 @@ $conf['settings']['uploads']['reservation.attachment.extensions'] = 'txt,jpg,gif
 /**
  * Database configuration
  */
+// Uncomment for token to refer to development database.
+$DB_NAME = getenv('DBDEV_NAME');
+
+// Uncomment for token to refer to quality assurance database.
+// $DB_NAME = getenv('DBQA_NAME');
+
+// Uncomment for token to refer to production database.
+// $DB_NAME = getenv('DBPROD_NAME');
+
 $conf['settings']['database']['type'] = 'mysql';
 $conf['settings']['database']['user'] = 'booked_user';        // database user with permission to the booked database
 $conf['settings']['database']['password'] = 'password';
 $conf['settings']['database']['hostspec'] = '127.0.0.1';        // ip, dns or named pipe
-$conf['settings']['database']['name'] = 'bookedscheduler';
+$conf['settings']['database']['name'] = $DB_NAME;
 /**
  * Mail server configuration
  */
