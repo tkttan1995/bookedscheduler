@@ -31,6 +31,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 			    margin: 0px;
 			    color: #333333;
 			    height: 100%;
+			    width: 100%
 			}
 
 			div.resource-image img
